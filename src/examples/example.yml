@@ -6,8 +6,30 @@ description: >
 usage:
   version: 2.1
   orbs:
-    <orb-name>: <namespace>/<orb-name>@1.2.3
+    digital-cicd: vydev/digital-cicd@1.0.0
   workflows:
-    use-my-orb:
+    build-and-deploy:
+      when:
+        not:
+          equal: [ api, << pipeline.trigger_source >> ]
       jobs:
-        - <orb-name>/<job-name>
+        - digital-cicd/build:
+            java-version: 17
+            postgres-version: 15
+        - digital-cicd/deploy:
+            requires:
+              - digital-cicd/build
+            filters:
+              branches:
+                only: main
+
+    deploy-to-test:
+      when:
+        equal: [ api, << pipeline.trigger_source >> ]
+      jobs:
+        - digital-cicd/build:
+            java-version: 17
+            postgres-version: 15
+        - digital-cicd/deploy:
+            requires:
+              - digital-cicd/build

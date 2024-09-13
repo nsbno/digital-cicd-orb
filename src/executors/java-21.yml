@@ -1,0 +1,12 @@
+description: >
+  This executor is using openjdk21, and postgres which accepts a tag as a parameter. If not supplied, it defaults to postgres:15
+docker:
+  - image: cimg/openjdk:21.0
+  - image: 'postgres:<<parameters.tag>>'
+parameters:
+  postgres-version:
+    default: 15
+    description: >
+      Pick a specific cimg/node image variant (defaults to 15):
+      https://hub.docker.com/_/postgres/tags
+    type: integer

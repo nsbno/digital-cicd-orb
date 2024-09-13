@@ -1,0 +1,25 @@
+description: >
+  Builds the source 
+
+parameters:
+  java-version:
+    type: integer
+    description: "What version of java are you using?"
+  postgres-version:
+    type: integer
+    default: 15
+    description: "Version to use for postgres"
+  environment:
+      gradle-ops:
+        type: string
+        default: ""
+        description: "Optional gradle options"
+
+
+executor:
+  name: 'java-<< parameters.java-version >>'
+  postgres-version: << parameters.postgres-version >>
+
+steps:
+  - build:
+      gradle-opts: << parameters.environment.gradle-ops >>
