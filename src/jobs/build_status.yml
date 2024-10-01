@@ -4,6 +4,10 @@ description: >
 
 executor: default
 
+parameters:
+  job_name:
+    type: string
+
 steps:
   - report_status:
       job_name: ${CIRCLE_JOB}
