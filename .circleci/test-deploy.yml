@@ -30,7 +30,7 @@ jobs:
       # Run your orb's commands to validate them.
       - digital-cicd/build_status
 workflows:
-  test-deploy:
+  test_deploy:
     jobs:
       # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
       # Test your orb's commands in a custom job and test your orb's jobs directly as a part of this workflow.
