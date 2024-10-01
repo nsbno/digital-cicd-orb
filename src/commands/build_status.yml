@@ -15,4 +15,4 @@ steps:
         PARAM_JOB_NAME: << parameter.job_name >>
         PARAM_JOB_STATUS: "started"
       name: Job Status
-      command: echo "test"
+      command: <<include(scripts/send_build_status.sh)>>
