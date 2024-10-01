@@ -5,5 +5,5 @@ description: >
 executor: default
 
 steps:
-  - build_test:
+  - report_status:
       job_name: ${CIRCLE_JOB}
