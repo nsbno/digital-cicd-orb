@@ -6,6 +6,6 @@ executor: default
 
 parameters:
 steps:
-  - build-status:
+  - build_status:
       # repo_name: << pipeline.project_name >>
       job_name: ${CIRCLE_JOB}

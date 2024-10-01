@@ -22,19 +22,19 @@ release-filters: &release-filters
 jobs:
   # Create jobs to test the commands of your orbs.
   # You may want to add additional validation steps to ensure the commands are working as expected.
-  build-status:
+  build_status:
     docker:
       - image: cimg/base:current
     steps:
       - checkout
       # Run your orb's commands to validate them.
-      - digital-cicd/build-status
+      - digital-cicd/build_status
 workflows:
   test-deploy:
     jobs:
       # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
       # Test your orb's commands in a custom job and test your orb's jobs directly as a part of this workflow.
-      - build-status:
+      - build_status:
           filters: *filters
       # The orb must be re-packed for publishing, and saved to the workspace.
       - orb-tools/pack:
@@ -46,6 +46,6 @@ workflows:
           # Ensure this job requires all test jobs and the pack job.
           requires:
             - orb-tools/pack
-            - build-status
+            - build_status
           context: orb-publishing
           filters: *release-filters
