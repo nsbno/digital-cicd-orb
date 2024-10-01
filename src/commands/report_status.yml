@@ -12,7 +12,7 @@ steps:
   - run:
       environment:
         PARAM_REPO_NAME: << parameters.repo_name >>
-        PARAM_JOB_NAME: << parameter.job_name >>
+        PARAM_JOB_NAME: << parameters.job_name >>
         PARAM_JOB_STATUS: "started"
       name: Job Status
       command: <<include(scripts/send_build_status.sh)>>

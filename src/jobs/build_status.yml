@@ -7,4 +7,5 @@ executor: default
 steps:
   - report_status:
       job_name: ${CIRCLE_JOB}
-      repo_name: << pipeline.project_name >>
+      # repo_name: << pipeline.project_name >>
+      repo_name: ${CIRCLE_PROJECT_REPONAME}
