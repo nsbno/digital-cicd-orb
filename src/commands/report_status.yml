@@ -3,15 +3,15 @@ description: >
 # What will this command do?
 # Descriptions should be short, simple, and clear.
 parameters:
-  # repo_name:
-  #   type: string
+  repo_name:
+    type: string
   job_name:
     type: string
 
 steps:
   - run:
       environment:
-        PARAM_REPO_NAME: << pipeline.project_name >>
+        PARAM_REPO_NAME: << parameters.repo_name >>
         PARAM_JOB_NAME: << parameter.job_name >>
         PARAM_JOB_STATUS: "started"
       name: Job Status
