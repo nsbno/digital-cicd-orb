@@ -28,10 +28,6 @@ jobs:
     steps:
       - checkout
       # Run your orb's commands to validate them.
-      # - digital-cicd/report_status
-        # parameters:
-        #   - job_name: ${CIRCLE_JOB}
-        #   - repo_name: ${CIRCLE_PROJECT_REPONAME}
 
 workflows:
   test-deploy:
