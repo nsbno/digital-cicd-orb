@@ -1,0 +1,9 @@
+description: >
+  Provide command report_status with needed params
+
+executor: default
+
+steps:
+  - report_status:
+      job_name: ${CIRCLE_JOB}
+      repo_name: ${CIRCLE_PROJECT_REPONAME}
