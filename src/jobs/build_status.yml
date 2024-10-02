@@ -1,6 +1,5 @@
 description: >
-  Sample description
-# What will this job do?
+  Provide command report_status with needed params
 
 executor: default
 

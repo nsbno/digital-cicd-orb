@@ -1,7 +1,5 @@
 description: >
-  This command echos "Hello World" using file inclusion.
-# What will this command do?
-# Descriptions should be short, simple, and clear.
+  This calls send_build_status.sh with the necessary environment variables
 parameters:
   repo_name:
     type: string
