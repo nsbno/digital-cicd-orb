@@ -20,6 +20,14 @@ workflows:
           exclude: RC006
       - shellcheck/check:
           filters: *filters
+      - orb-tools/publish:
+          orb_name: vydev/digital-cicd
+          vcs_type: << pipeline.project.type >>
+          requires:
+            [orb-tools/lint, orb-tools/review, orb-tools/pack, shellcheck/check]
+          # Use a context to hold your publishing token.
+          context: digitalekanaler-orb-publishing
+          filters: *filters
       # Triggers the next workflow in the Orb Development Kit.
       - orb-tools/continue:
           pipeline_number: << pipeline.number >>
