@@ -23,8 +23,6 @@ workflows:
       - orb-tools/publish:
           orb_name: vydev/digital-cicd
           vcs_type: << pipeline.project.type >>
-          orb-ref: vydev/digital-cicd@${CIRCLE_TAG}
-          attach-workspace: true
           checkout: false
           filters:
             branches:
